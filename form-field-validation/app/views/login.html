@@ -1,0 +1,13 @@
+<div class="container">
+    <form name="loginForm" novalidate>
+        <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input type="email" class="form-control" placeholder="Enter valid email." ng-model="email" name="email" ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="userPass">Password</label>
+            <input type="password" class="form-control" placeholder="*******" ng-model="password" name="password" ng-required="true">
+        </div>
+        <input type="submit" value="Login" ng-disabled="loginForm.$invalid">
+    </form>
+</div>

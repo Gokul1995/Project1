@@ -1,0 +1,46 @@
+<h1 style="text-align: center">User Registration</h1>
+        <form name="myForm" ng-controller="registrationController" ng-submit="signupUser(user)" novalidate>
+
+
+            <div class="form-group">
+                <label for="User Name">User Name</label>
+                <input type="text" class="form-control" ng-model="user.userName" name="userName" placeholder="Enter User Name" ng-required="true">
+                <span ng-show="myForm.userName.$touched && myForm.userName.$error.required">User Name is required.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">User Email</label>
+                <input type="email" class="form-control" ng-model="user.userEmail" name="userEmail" placeholder="Enter user email." ng-required="true">
+                <span ng-show="myForm.userEmail.$error.required && myForm.userEmail.$touched">Email address is required.</span>
+                <span ng-show="myForm.userEmail.$error.email">Invalid Email Address.</span>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="number" class="form-control" ng-model="user.phone" name="phone" placeholder="Enter phonenumber" required integer
+                    ng-required="true">
+                <span ng-show="myForm.phone.$error.required && myForm.phone.$touched">Phone number is required.</span>
+                <span ng-show="myForm.phone.$error.integer">Invalid Integer.</span>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="********" ng-model="user.password" name="password" required ng-pattern="passwordRegex"
+                    ng-required="true">
+                <span ng-show="myForm.password.$error.pattern">Password must be of 6-10 length.</span>
+                <span ng-show="isPasswordGoodEnough">Password Strength : {{passwordStrength}}</span>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="discription">Discription</label>
+                <textarea name="discription" ng-model="discription" id="" cols="30" rows="10" class="form-control" placeholder="User Discription"
+                    ng-maxlength="100" ng-minlength="25"></textarea>
+                <span ng-show="myForm.discription.$error.minlength">Too Short Discription. Character should be more then 25 characters.</span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" ng-required="true" ng-model="checkboxValue">
+                <label for="from-check-label">Accept all terms and condition.</label>
+                {{checkboxValue}}
+            </div> -->
+            <br>
+            <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="myForm.$invalid">
+            </button>
+        </form>
